@@ -1,12 +1,14 @@
+@import "tailwindcss";
+
 .logo {
   height: 6em;
-  padding: 1.5em;
+  padding: 0;
   will-change: filter;
   transition: filter 300ms;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em rgba(0, 0, 0, 0.25));
 }
 
 .logo.react:hover {
@@ -26,5 +28,22 @@
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+
+@layer components {
+  header {
+    @apply grid grid-cols-12;
+  }
+  .logo {
+    @apply col-span-6;
+  }
+
+  nav.menu {
+    @apply col-span-4 font-bold;
+  }
+
+  .cta {
+    @apply col-span-2;
   }
 }

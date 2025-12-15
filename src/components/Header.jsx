@@ -4,10 +4,17 @@ export const Header = () =>
 {
     return (
         <header>
-            <h1 className='font-sora'>
-                Titulo
-            </h1>
-            <p className='font-sourcesans'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo cupiditate quisquam corrupti, quasi provident ducimus reprehenderit, accusamus quibusdam ipsam dolores eveniet excepturi tenetur animi, reiciendis asperiores soluta modi! Doloribus, consectetur.</p>
+            <img className='logo' src="./public/qts-logo.svg" alt="quick-tech-solutions" />
+            <nav className='menu'>
+                <ul>
+                    <li>Services</li>
+                    <li>Why us</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+            <div className='cta'>
+                CTA
+            </div>
         </header>
     )
 }

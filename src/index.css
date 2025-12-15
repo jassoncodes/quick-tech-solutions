@@ -1,5 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1280px;
+}
 
 #root {
   margin: 0;
@@ -7,12 +16,58 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
-  max-width: 1280px;
-  text-align: center;
+  justify-content: center;
 }
 
 @theme {
+  /* Fonts */
   --font-sora: "Sora", sans-serif;
   --font-sourcesans: "Source Sans 3", sans-serif;
-  --font-display: "Source Sans 3", sans-serif;
+
+  --default-font-family: var(--font-sourcesans);
+  --default-mono-font-family: var(--font-sora);
+
+  /* Brand Colors */
+  --color-primary: #27445d; /* Trust, professionalism */
+  --color-secondary: #50c878; /* Support, solutions */
+  --color-text-primary: #353535; /* Main text */
+  --color-bg-light: #e7f3fc; /* Light tech background */
+  --color-bg-neutral: #e9e9e9; /* Neutral background */
+  --color-white: #ffffff;
+
+  /* Accent & UI */
+  --color-success: #50c878;
+
+  /* Hero / Featured sections */
+  --gradient-hero: linear-gradient(135deg, #50c878 0%, #3fae7f 40%, #27445d 100%);
+
+  /* Header-Footer Gradient */
+  --gradient-header: linear-gradient(135deg, #50c878 0%, #27445d 80%);
+
+  /* Primary CTA Buttons */
+  --gradient-cta: linear-gradient(90deg, #50c878 0%, #46b87a 100%);
+
+  /* Light section background */
+  --gradient-light: linear-gradient(180deg, #e7f3fc 0%, #ffffff 100%);
+
+  /* Headings */
+  /* 56px – Hero headline */
+  --text-h1: 3.5rem;
+
+  /* 36px – Section titles */
+  --text-h2: 2.25rem;
+
+  /* 24px – Subsections */
+  --text-h3: 1.5rem;
+
+  /* Body */
+  /* 16px – Paragraphs */
+  --text-body: 1rem;
+
+  /* 18px – Emphasized text */
+  --text-body-lg: 1.125rem;
+
+  /* UI */
+  /* 16px */
+  --text-button: 1rem;
 }
