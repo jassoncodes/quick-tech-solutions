@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
+
+#root {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  max-width: 1280px;
+  text-align: center;
+}
+
+@theme {
+  --font-sora: "Sora", sans-serif;
+  --font-sourcesans: "Source Sans 3", sans-serif;
+  --font-display: "Source Sans 3", sans-serif;
+}
