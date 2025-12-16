@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu");
+@import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-}
 
 body {
   margin: 0 auto;
@@ -28,11 +26,16 @@ body {
   --default-mono-font-family: var(--font-sora);
 
   /* Brand Colors */
-  --color-primary: #27445d; /* Trust, professionalism */
-  --color-secondary: #50c878; /* Support, solutions */
-  --color-text-primary: #353535; /* Main text */
-  --color-bg-light: #e7f3fc; /* Light tech background */
-  --color-bg-neutral: #e9e9e9; /* Neutral background */
+  --color-primary: #27445d;
+  /* Trust, professionalism */
+  --color-secondary: #50c878;
+  /* Support, solutions */
+  --color-text-primary: #353535;
+  /* Main text */
+  --color-bg-light: #e7f3fc;
+  /* Light tech background */
+  --color-bg-neutral: #e9e9e9;
+  /* Neutral background */
   --color-white: #ffffff;
 
   /* Accent & UI */
@@ -70,4 +73,38 @@ body {
   /* UI */
   /* 16px */
   --text-button: 1rem;
+}
+
+@layer utilities {
+  .text-primary {
+    color: var(--color-primary);
+  }
+}
+
+@layer components {
+
+  header {
+    @apply flex justify-between px-4 md:p-0 md:grid md:grid-cols-12 items-center;
+  }
+
+  .logo {
+    @apply col-span-6 h-[3.75em] md:h-[4.75em] p-0;
+  }
+
+  nav.menu {
+    @apply font-bold col-span-6 md:block md:col-span-4 md:justify-items-end;
+
+    ul {
+      @apply w-full hidden md:inline-flex align-middle md:gap-3 justify-end text-primary;
+    }
+
+    .toggle-menu {
+      @apply md:hidden block leading-0;
+    }
+  }
+
+
+  .cta {
+    @apply col-span-2 justify-self-end hidden md:block;
+  }
 }
