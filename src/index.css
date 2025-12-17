@@ -38,7 +38,8 @@ body {
   --color-success-dark: #3fae7f; /* Accent/Dark*/
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #50c878 0%, #3fae7f 40%, #27445d 100%); /* Hero / Featured sections */
+  --gradient-hero-green-blue: linear-gradient(135deg, #50c878 0%, #3fae7f 10%, #27445d 100%); /* Hero / Featured sections */
+  --gradient-hero-blue-green: linear-gradient(90deg, #27445d 15%, #3fae7f 75%, #50c878 95%); /* Hero / Featured sections */
   --gradient-header: linear-gradient(135deg, #50c878 0%, #27445d 80%); /* Header-Footer Gradient */
   --gradient-cta: linear-gradient(90deg, #50c878 0%, #46b87a 100%); /* Primary CTA Buttons */
   --gradient-light: linear-gradient(180deg, #e7f3fc 0%, #ffffff 100%); /* Light section background */
@@ -58,11 +59,11 @@ body {
 
 @layer base {
   #root {
-    @apply px-4 py-2 desktop:px-16 bg-white shadow-xl/30 rounded-lg;
+    @apply desktop:px-0 bg-white shadow-xl/30 rounded-lg;
   }
 
   header {
-    @apply flex desktop:p-0 desktop:grid desktop:grid-cols-12 items-center;
+    @apply flex px-4 py-2 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center;
   }
 
   .logo {
@@ -108,7 +109,7 @@ body {
   }
 
   ul.menu-list.open {
-    @apply opacity-100 scale-100 translate-y-0 pointer-events-auto;
+    @apply opacity-100 scale-100 translate-y-0 pointer-events-auto font-semibold;
   }
 
   ul.menu-list li a {
@@ -124,13 +125,13 @@ body {
       overflow-hidden
       cursor-pointer
       col-span-2
-      justify-self-end
       hidden
       px-10
       py-2
-      rounded-xl
+      rounded-4xl
       text-white
       font-bold
+      w-fit
       desktop:block
       transition-all 
       duration-300 
@@ -154,7 +155,7 @@ body {
     content: "";
     @apply absolute
       inset-0
-      bg-(image:--gradient-hero)
+      bg-(image:--gradient-hero-green-blue)
       opacity-0
       transition-all
       duration-300
@@ -172,5 +173,67 @@ body {
 
   .button-primary.in-menu {
     @apply block place-self-center desktop:hidden px-6 py-2;
+  }
+
+  .button-secondary {
+    @apply relative
+      overflow-hidden
+      cursor-pointer
+      col-span-2
+      px-10
+      py-2
+      rounded-4xl
+      text-white
+      font-semibold
+      w-fit
+      desktop:block
+      transition-all 
+      duration-300 
+      ease-in-out
+      hover:scale-110
+      shadow-lg/30;
+  }
+
+  .button-secondary::before {
+    content: "";
+    @apply absolute
+      inset-0
+      bg-(image:--gradient-cta)
+      transition-all
+      duration-300
+      ease-in
+      z-0;
+  }
+
+  .button-secondary::after {
+    content: "";
+    @apply absolute
+      inset-0
+      bg-(image:--gradient-cta)
+      opacity-0
+      transition-all
+      duration-300
+      ease-in
+      z-0;
+  }
+
+  .button-secondary:hover::after {
+    @apply opacity-65;
+  }
+
+  .button-secondary > * {
+    @apply relative z-10;
+  }
+
+  .hero {
+    @apply flex flex-col h-1/2 justify-center px-4 desktop:px-16 gap-3.5 bg-(image:--gradient-hero-blue-green) text-white;
+  }
+
+  .hero-slogan {
+    @apply text-2xl font-extrabold;
+  }
+
+  h1.hero-header {
+    @apply text-5xl font-sora;
   }
 }

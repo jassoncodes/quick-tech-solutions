@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
+import { Button } from './Button';
+import logo from '../assets/images/qts-logo.svg'
 
 export const Header = () =>
 {
@@ -12,7 +14,7 @@ export const Header = () =>
 
     return (
         <header>
-            <img className='logo' src="./public/qts-logo.svg" alt="quick-tech-solutions" />
+            <img className='logo' src={logo} alt="quick-tech-solutions" />
             <button onClick={handleOpenMenu} aria-controls='navBar' className='toggle-menu'>
                 <span className="material-symbols-outlined">
                     menu
@@ -25,20 +27,11 @@ export const Header = () =>
                     <li><a href="#">Why us</a></li>
                     <li><a href="#">Contact</a></li>
                     <li>
-
-                        <button className='button-primary in-menu'>
-                            <span>
-                                Call now
-                            </span>
-                        </button>
+                        <Button text='Call now' className='button-primary in-menu' />
                     </li>
                 </ul>
             </nav>
-            <button className='button-primary'>
-                <span>
-                    Call now
-                </span>
-            </button>
+            <Button text='Call now' className='button-primary' />
         </header>
     )
 }
