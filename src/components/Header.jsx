@@ -14,20 +14,30 @@ export const Header = () =>
         <header>
             <img className='logo' src="./public/qts-logo.svg" alt="quick-tech-solutions" />
             <button onClick={handleOpenMenu} aria-controls='navBar' className='toggle-menu'>
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     menu
                 </span>
             </button>
             <nav className='menu' id='navBar'>
 
                 <ul className={`menu-list ${open ? "open" : ""}`}>
-                    <li>Services</li>
-                    <li>Why us</li>
-                    <li>Contact</li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Why us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li>
+
+                        <button className='button-primary in-menu'>
+                            <span>
+                                Call now
+                            </span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
-            <button className='cta'>
-                CTA
+            <button className='button-primary'>
+                <span>
+                    Call now
+                </span>
             </button>
         </header>
     )
