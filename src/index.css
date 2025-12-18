@@ -1,20 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=archive,book_ribbon,build,forum,handshake,menu,payments,print,support_agent,verified_user,wifi");
 @import "tailwindcss";
 
-body {
+/* Uncoment to go content centered */
+/* body {
   margin: 0 auto;
   max-width: 1280px;
-}
-
-#root {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100dvh;
-  justify-content: center;
-}
+} */
 
 @theme {
+  /* General Grid   */
+  --web-grid: auto 1fr auto;
+
   /* Breakpoints */
   --breakpoint-desktop: 1080px;
   --breakpoint-tablet: 768px;
@@ -30,16 +27,16 @@ body {
   /* Brand Colors */
   --color-primary: #27445d; /* Trust, professionalism */
   --color-secondary: #50c878; /* Support, solutions: Accent/Bright Success */
+  --color-secondary-dark: #3fae7f; /* Accent/Dark Success*/
   --color-black: #353535; /* Main text */
   --color-light: #e7f3fc; /* Light tech background */
   --color-neutral: #e9e9e9; /* Neutral background */
-  --color-white: #f0f0f0;
-
-  --color-success-dark: #3fae7f; /* Accent/Dark*/
+  --color-white: #fff;
 
   /* Gradients */
   --gradient-hero-green-blue: linear-gradient(135deg, #50c878 0%, #3fae7f 10%, #27445d 100%); /* Hero / Featured sections */
   --gradient-hero-blue-green: linear-gradient(90deg, #27445d 15%, #3fae7f 75%, #50c878 95%); /* Hero / Featured sections */
+  --gradient-hero-blue-green-75-oppacy: linear-gradient(100deg, #27445d 10%, #3fae7fb3 75%, #50c878bf 95%); /* Hero / Featured sections */
   --gradient-header: linear-gradient(135deg, #50c878 0%, #27445d 80%); /* Header-Footer Gradient */
   --gradient-cta: linear-gradient(90deg, #50c878 0%, #46b87a 100%); /* Primary CTA Buttons */
   --gradient-light: linear-gradient(180deg, #e7f3fc 0%, #ffffff 100%); /* Light section background */
@@ -55,11 +52,38 @@ body {
 
   /* UI */
   --text-button: 1rem; /* 16px */
+  --cards-grid: repeat(auto-fit, minmax(280px, 1fr));
+
+  /* Spacing & Layout Utility Tokens */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 2rem; /* 32px */
+  --spacing-lg: 4rem; /* 64px */
+  --section-padding: 5rem 1rem;
+  --container-width: 1200px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 @layer base {
   #root {
-    @apply desktop:px-0 bg-white shadow-xl/30 rounded-lg;
+    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 bg-white shadow-xl/30 rounded-lg;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  p {
+    @apply text-lg;
   }
 
   header {
@@ -137,7 +161,7 @@ body {
       duration-300 
       ease-in-out
       hover:scale-110
-      shadow-lg/30;
+      shadow-md/30;
   }
 
   .button-primary::before {
@@ -191,7 +215,7 @@ body {
       duration-300 
       ease-in-out
       hover:scale-110
-      shadow-lg/30;
+      shadow-md/30;
   }
 
   .button-secondary::before {
@@ -226,7 +250,17 @@ body {
   }
 
   .hero {
-    @apply flex flex-col h-1/2 justify-center px-4 desktop:px-16 gap-3.5 bg-(image:--gradient-hero-blue-green) text-white;
+    @apply flex 
+      flex-col 
+      gap-3.5 
+      justify-center 
+      min-h-[70dvh] 
+      px-4 
+      text-white
+      desktop:px-16 
+      bg-[image:var(--gradient-hero-blue-green-75-oppacy),url('./assets/images/tech-support-pc.png')]
+      bg-cover
+      bg-position-[center_top_0rem];
   }
 
   .hero-slogan {
@@ -235,5 +269,58 @@ body {
 
   h1.hero-header {
     @apply text-5xl font-sora;
+  }
+
+  .hero p {
+    @apply mb-4;
+  }
+
+  /* --- SERVICES SECTION --- */
+  .services {
+    @apply flex  flex-col items-center bg-light p-(--section-padding);
+  }
+
+  .section-header {
+    @apply m-auto text-center max-w-175 mb-12 text-primary;
+  }
+
+  .services-grid {
+    @apply grid px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
+  }
+
+  .service-card {
+    @apply bg-white p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
+  }
+
+  .service-card:hover {
+    @apply -translate-y-1.5;
+  }
+
+  .service-icon {
+    @apply w-[50px] h-[50px] rounded-full bg-light flex items-center justify-center mb-8 text-secondary;
+  }
+
+  .why-section {
+    @apply p-(--section-padding) flex flex-col justify-center items-center  text-primary;
+  }
+
+  .why-grid {
+    @apply grid px-12;
+  }
+
+  .why-card {
+    @apply flex gap-8;
+
+    &:nth-child(even) {
+      @apply flex-row-reverse;
+    }
+
+    h3 {
+      @apply text-secondary-dark;
+    }
+  }
+
+  .why-card img {
+    @apply w-1/3 rounded-md shadow-md;
   }
 }

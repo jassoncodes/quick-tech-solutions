@@ -7,9 +7,9 @@ export const Hero = () =>
         <section className='hero'>
             <span className='hero-slogan'>Smart. Trusted. Support.</span>
             <h1 className='hero-header'>
-                Title
+                Technology Made Simple for Everyone in Miami.
             </h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo cupiditate quisquam corrupti, quasi provident ducimus reprehenderit, accusamus quibusdam ipsam dolores eveniet excepturi tenetur animi, reiciendis asperiores soluta modi! Doloribus, consectetur.</p>
+            <p>Professional and friendly tech support for home and small business. Expert help in Miami.</p>
             <Button text='Call now for tech support' className='button-secondary' />
 
         </section>
