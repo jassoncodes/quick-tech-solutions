@@ -15,7 +15,7 @@ export const Services = () =>
             <div className="services-grid">
                 {SERVICES.map((service) =>
                 {
-                    return <ServiceCard service={service} />
+                    return <ServiceCard key={service.id} service={service} />
                 })}
             </div>
             <Button className='button-primary' text='Request a Quote' />
