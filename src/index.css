@@ -71,7 +71,7 @@
 
 @layer base {
   #root {
-    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
+    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary;
   }
 
   h2 {
@@ -285,7 +285,7 @@
   }
 
   .services-grid {
-    @apply grid px-4 tablet:px-8 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
+    @apply grid px-4 tablet:px-4 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
   }
 
   .service-card {
@@ -305,7 +305,7 @@
   }
 
   .why-grid {
-    @apply grid px-10 tablet:px-8 desktop:px-12 gap-14;
+    @apply grid px-4 tablet:px-4 desktop:px-12 gap-14;
   }
 
   .why-card {
@@ -333,20 +333,34 @@
   }
 
   .contact-grid {
-    @apply flex flex-col-reverse px-4 tablet:px-8 desktop:px-12 gap-8 desktop:grid desktop:grid-cols-2 items-center;
+    @apply flex gap-8 desktop:flex-col flex-col-reverse desktop:grid px-4 tablet:px-4 desktop:px-12 desktop:grid-cols-2;
   }
 
   .contact-info {
     @apply flex flex-col gap-4;
-    ul {
-      @apply flex flex-col gap-2;
-    }
-    & > div {
-      @apply flex align-middle gap-2;
-    }
   }
 
-  .contact-info li {
-    @apply flex align-middle gap-2;
+  .contact-info ul {
+    @apply flex flex-col gap-1.5;
+  }
+  .contact-info ul li,
+  .contact-disclaimer {
+    @apply flex align-middle gap-3 text-lg;
+  }
+
+  .contact-info span {
+    @apply text-secondary-dark;
+  }
+
+  /* .contact-form-section {
+    @apply bg-white;
+  } */
+
+  .contact-form {
+    @apply flex flex-col gap-4;
+
+    input {
+      @apply bg-white border-white rounded-md h-9 focus:border-secondary active:border-secondary p-5 outline-0 focus:border-2 focus:border-solid;
+    }
   }
 }

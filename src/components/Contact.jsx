@@ -1,4 +1,5 @@
 import React from 'react'
+import { ContactForm } from './ContactForm'
 
 export const Contact = () =>
 {
@@ -27,20 +28,19 @@ export const Contact = () =>
                             <span className="material-symbols-outlined">
                                 map_pin_heart
                             </span>
-                            <a>Miami, Florida</a>
+                            <a>Based in Miami, Florida</a>
                         </li>
                     </ul>
                     <div className='contact-disclaimer'>
                         <span className="material-symbols-outlined">
                             map
                         </span>
-                        <p>We proudly serve residential clients across</p>
+                        <p>
+                            We proudly serve residential clients across Kendall, Kendall West, East Kendall, Pinecrest, Coral Gables, South Miami, Coconut Grove, Doral, and Sweetwater.
+                        </p>
                     </div>
-
                 </div>
-                <div className='contact-form'>
-                    Contact Form
-                </div>
+                <ContactForm />
             </div>
         </section>
     )
