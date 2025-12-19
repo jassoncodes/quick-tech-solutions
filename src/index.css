@@ -71,15 +71,15 @@
 
 @layer base {
   #root {
-    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 bg-white shadow-xl/30 rounded-lg;
+    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
   }
 
   h2 {
-    @apply text-h2;
+    @apply text-h2 font-bold;
   }
 
   h3 {
-    @apply text-h3;
+    @apply text-h3 font-semibold;
   }
 
   p {
@@ -282,20 +282,14 @@
 
   .section-header {
     @apply m-auto text-center max-w-175 mb-12 text-primary;
-    h2 {
-      @apply font-extrabold;
-    }
   }
 
   .services-grid {
-    @apply grid px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
+    @apply grid px-4 tablet:px-8 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
   }
 
   .service-card {
     @apply bg-white p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
-    h3 {
-      @apply font-semibold;
-    }
   }
 
   .service-card:hover {
@@ -311,7 +305,7 @@
   }
 
   .why-grid {
-    @apply grid px-12 gap-14;
+    @apply grid px-10 tablet:px-8 desktop:px-12 gap-14;
   }
 
   .why-card {
@@ -339,6 +333,20 @@
   }
 
   .contact-grid {
-    @apply grid desktop:grid-cols-2 items-center;
+    @apply flex flex-col-reverse px-4 tablet:px-8 desktop:px-12 gap-8 desktop:grid desktop:grid-cols-2 items-center;
+  }
+
+  .contact-info {
+    @apply flex flex-col gap-4;
+    ul {
+      @apply flex flex-col gap-2;
+    }
+    & > div {
+      @apply flex align-middle gap-2;
+    }
+  }
+
+  .contact-info li {
+    @apply flex align-middle gap-2;
   }
 }
