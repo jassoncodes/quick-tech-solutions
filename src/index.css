@@ -352,15 +352,21 @@
     @apply text-secondary-dark;
   }
 
-  /* .contact-form-section {
-    @apply bg-white;
-  } */
-
   .contact-form {
     @apply flex flex-col gap-4;
 
     input {
-      @apply bg-white border-white rounded-md h-9 focus:border-secondary active:border-secondary p-5 outline-0 focus:border-2 focus:border-solid;
+      @apply bg-white border-white text-primary;
+    }
+
+    input,
+    select,
+    textarea {
+      @apply text-primary rounded-md bg-white focus:border-secondary active:border-secondary p-3 outline-0 focus:border-2 focus:border-solid;
+    }
+
+    textarea {
+      @apply resize-none h-32;
     }
   }
 }
