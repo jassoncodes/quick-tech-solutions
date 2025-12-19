@@ -71,7 +71,7 @@
 
 @layer base {
   #root {
-    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary;
+    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
   }
 
   h2 {
@@ -285,7 +285,7 @@
   }
 
   .services-grid {
-    @apply grid px-4 tablet:px-4 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
+    @apply grid px-4 tablet:px-8 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
   }
 
   .service-card {
@@ -305,7 +305,7 @@
   }
 
   .why-grid {
-    @apply grid px-4 tablet:px-4 desktop:px-12 gap-14;
+    @apply grid px-10 tablet:px-8 desktop:px-12 gap-14;
   }
 
   .why-card {
