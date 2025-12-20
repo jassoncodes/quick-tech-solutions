@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,archive,book_ribbon,build,call,forum,handshake,map,map_pin_heart,menu,partner_exchange,payments,print,support_agent,verified_user,wifi");
+
 @import "tailwindcss";
 
 /* Uncoment to go content centered */
@@ -52,7 +53,6 @@
 
   /* UI */
   --text-button: 1rem; /* 16px */
-  --cards-grid: repeat(auto-fit, minmax(280px, 1fr));
 
   /* Spacing & Layout Utility Tokens */
   --spacing-xs: 0.5rem; /* 8px */
@@ -71,7 +71,7 @@
 
 @layer base {
   #root {
-    @apply h-dvh grid grid-rows-(--web-grid) desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
+    @apply h-dvh grid grid-rows-[auto_1fr_auto] desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
   }
 
   h2 {
@@ -99,37 +99,11 @@
   }
 
   ul.menu-list {
-    @apply absolute 
-    top-[7.3%] 
-    left-0 
-    w-full 
-    bg-white
-    text-primary 
-    text-body-lg 
-    flex 
-    flex-col 
-    gap-4 
-    text-center 
-    justify-center 
-    h-2/8
-
+    @apply absolute top-[7.3%] left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
     /* estado cerrado */
-    opacity-0 
-    scale-95 
-    -translate-y-2 
-    pointer-events-none
-
+    opacity-0 scale-95 -translate-y-2 pointer-events-none
     /* animación */
-    transition-all 
-    duration-300 
-    ease-out 
-    desktop:static 
-    desktop:opacity-100 
-    desktop:scale-100 
-    desktop:translate-y-0 
-    desktop:pointer-events-auto 
-    desktop:flex-row desktop:justify-end 
-    desktop:gap-12 desktop:text-xl;
+    transition-all duration-300 ease-out desktop:static desktop:opacity-100 desktop:scale-100 desktop:translate-y-0 desktop:pointer-events-auto desktop:flex-row desktop:justify-end desktop:gap-12 desktop:text-xl;
   }
 
   ul.menu-list.open {
@@ -145,46 +119,17 @@
   }
 
   .button-primary {
-    @apply relative
-      overflow-hidden
-      cursor-pointer
-      col-span-2
-      hidden
-      px-10
-      py-2
-      rounded-4xl
-      text-white
-      font-bold
-      w-fit
-      desktop:block
-      transition-all 
-      duration-300 
-      ease-in-out
-      hover:scale-110
-      shadow-md/30;
+    @apply relative overflow-hidden cursor-pointer col-span-2 hidden px-10 py-2 rounded-4xl text-white font-bold w-fit desktop:block transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
   }
 
   .button-primary::before {
     content: "";
-    @apply absolute
-      inset-0
-      bg-(image:--gradient-header)
-      transition-all
-      duration-300
-      ease-in
-      z-0;
+    @apply absolute inset-0 bg-(image:--gradient-header) transition-all duration-300 ease-in z-0;
   }
 
   .button-primary::after {
     content: "";
-    @apply absolute
-      inset-0
-      bg-(image:--gradient-hero-green-blue)
-      opacity-0
-      transition-all
-      duration-300
-      ease-in
-      z-0;
+    @apply absolute inset-0 bg-(image:--gradient-hero-green-blue) opacity-0 transition-all duration-300 ease-in z-0;
   }
 
   .button-primary:hover::after {
@@ -200,45 +145,17 @@
   }
 
   .button-secondary {
-    @apply relative
-      overflow-hidden
-      cursor-pointer
-      col-span-2
-      px-10
-      py-2
-      rounded-4xl
-      text-white
-      font-semibold
-      w-fit
-      desktop:block
-      transition-all 
-      duration-300 
-      ease-in-out
-      hover:scale-110
-      shadow-md/30;
+    @apply relative overflow-hidden cursor-pointer col-span-2 px-10 py-2 rounded-4xl text-white font-semibold w-fit desktop:block transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
   }
 
   .button-secondary::before {
     content: "";
-    @apply absolute
-      inset-0
-      bg-(image:--gradient-cta)
-      transition-all
-      duration-300
-      ease-in
-      z-0;
+    @apply absolute inset-0 bg-(image:--gradient-cta) transition-all duration-300 ease-in z-0;
   }
 
   .button-secondary::after {
     content: "";
-    @apply absolute
-      inset-0
-      bg-(image:--gradient-cta)
-      opacity-0
-      transition-all
-      duration-300
-      ease-in
-      z-0;
+    @apply absolute inset-0 bg-(image:--gradient-cta) opacity-0 transition-all duration-300 ease-in z-0;
   }
 
   .button-secondary:hover::after {
@@ -250,17 +167,13 @@
   }
 
   .hero {
-    @apply flex 
-      flex-col 
-      gap-3.5 
-      justify-center 
-      min-h-[70dvh] 
-      px-4 
-      text-white
-      desktop:px-16 
-      bg-[image:var(--gradient-hero-blue-green-75-oppacy),url('./assets/images/tech-support-pc.png')]
-      bg-cover
-      bg-position-[center_top_0rem];
+    background-image: var(--gradient-hero-blue-green-75-oppacy), url("./assets/images/tech-support-pc.png");
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero {
+    @apply min-h-[70dvh] flex flex-col justify-center px-4 text-white desktop:px-16;
   }
 
   .hero-slogan {
@@ -278,6 +191,9 @@
   /* --- SERVICES SECTION --- */
   .services {
     @apply flex flex-col items-center bg-light p-(--section-padding);
+    .button-primary {
+      @apply block;
+    }
   }
 
   .section-header {
@@ -285,11 +201,11 @@
   }
 
   .services-grid {
-    @apply grid px-4 tablet:px-8 desktop:px-12 gap-8 grid-cols-(--cards-grid) mb-8 desktop:grid-cols-3;
+    @apply grid px-4 tablet:px-8 desktop:px-12 gap-6 mb-8 tablet:min-h-96 tablet:grid-cols-2 desktop:grid-cols-3;
   }
 
   .service-card {
-    @apply bg-white p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
+    @apply bg-white min-h-80 p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
   }
 
   .service-card:hover {
@@ -324,10 +240,6 @@
     @apply hidden tablet:block tablet:w-1/2 tablet:rounded-md tablet:shadow-md;
   }
 
-  .why-grid .why-card div span {
-    @apply text-5xl!;
-  }
-
   .contact {
     @apply bg-neutral p-(--section-padding);
   }
@@ -343,6 +255,7 @@
   .contact-info ul {
     @apply flex flex-col gap-1.5;
   }
+
   .contact-info ul li,
   .contact-disclaimer {
     @apply flex align-middle gap-3 text-lg;
@@ -352,8 +265,20 @@
     @apply text-secondary-dark;
   }
 
+  em.serving-areas {
+    @apply text-secondary;
+  }
+
   .contact-form {
-    @apply flex flex-col gap-4;
+    /* @apply flex flex-col gap-4; */
+
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1rem;
+
+    & > :nth-child(n + 5) {
+      grid-column: 1/-1;
+    }
 
     input {
       @apply bg-white border-white text-primary;
@@ -362,7 +287,7 @@
     input,
     select,
     textarea {
-      @apply text-primary rounded-md bg-white focus:border-secondary active:border-secondary p-3 outline-0 focus:border-2 focus:border-solid;
+      @apply text-primary rounded-md bg-white focus:border-secondary active:border-secondary p-2 desktop:p-3 outline-0 focus:border-2 focus:border-solid;
     }
 
     textarea {

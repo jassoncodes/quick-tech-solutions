@@ -1,8 +1,19 @@
 import React from 'react'
 import { ContactForm } from './ContactForm'
+import { useTypewriter } from '../hooks/Typewriter'
+import { CITIES } from '../config'
+
 
 export const Contact = () =>
 {
+
+    const text = useTypewriter({
+        texts: CITIES,
+        typingDelay: 70,
+        pauseDelay: 2000,
+        loop: true,
+    })
+
     return (
         <section id='contact' className='contact'>
             <div className="section-header">
@@ -36,7 +47,7 @@ export const Contact = () =>
                             map
                         </span>
                         <p>
-                            We proudly serve residential clients across Kendall, Kendall West, East Kendall, Pinecrest, Coral Gables, South Miami, Coconut Grove, Doral, and Sweetwater.
+                            <em>We proudly serve residential clients across</em> <em className='serving-areas'>{text}</em>
                         </p>
                     </div>
                 </div>
