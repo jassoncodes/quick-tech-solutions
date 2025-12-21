@@ -174,8 +174,7 @@
   }
 
   .hero {
-    @apply min-h-[70dvh] flex flex-col justify-center px-4 text-white desktop:px-16;
-    /* @apply min-h-[70dvh] flex flex-col justify-center text-white desktop:px-16; */
+    @apply min-h-[70dvh] flex flex-col justify-center px-6 text-white desktop:px-16;
   }
 
   .hero-slogan {
@@ -193,7 +192,6 @@
   /* --- SERVICES SECTION --- */
   .services {
     @apply flex flex-col items-center bg-light p-(--section-padding);
-    /* @apply flex flex-col items-center bg-light; */
 
     .button-primary {
       @apply block;
@@ -210,7 +208,6 @@
 
   .service-card {
     @apply bg-white min-h-80 p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
-    /* @apply bg-white min-h-80 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary; */
   }
 
   .service-card:hover {
@@ -223,7 +220,6 @@
 
   .why-section {
     @apply p-(--section-padding) flex flex-col text-primary;
-    /* @apply flex flex-col text-primary; */
   }
 
   .why-grid {
@@ -248,8 +244,7 @@
 
   /* TODO: Padding messing up with mobile design */
   .contact {
-    /* @apply bg-neutral p-(--section-padding); */
-    @apply bg-neutral;
+    @apply flex flex-col bg-neutral py-20 tablet:p-(--section-padding);
   }
 
   .contact-grid {
