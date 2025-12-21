@@ -252,7 +252,7 @@
   }
 
   .contact-info {
-    @apply flex flex-col gap-4;
+    @apply flex flex-col min-h-44 p-2 w-75;
   }
 
   .contact-info ul {
@@ -261,11 +261,11 @@
 
   .contact-info ul li,
   .contact-disclaimer {
-    @apply flex align-middle gap-3 text-lg;
+    @apply flex align-middle gap-1.5 text-lg justify-start;
   }
 
   .contact-info span {
-    @apply text-secondary-dark;
+    @apply text-secondary-dark text-wrap text-start;
   }
 
   em.serving-areas {
@@ -276,6 +276,7 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 1rem;
+    justify-self: center;
 
     & > :nth-child(n + 5) {
       grid-column: 1/-1;
@@ -306,5 +307,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-width: 300px;
   }
 }
