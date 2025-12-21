@@ -1,18 +1,9 @@
 import React from 'react'
 import { ContactForm } from './ContactForm'
-import { useTypewriter } from '../hooks/Typewriter'
-import { CITIES } from '../config'
-
+import { ContactInfo } from './ContactInfo'
 
 export const Contact = () =>
 {
-
-    const text = useTypewriter({
-        texts: CITIES,
-        typingDelay: 70,
-        pauseDelay: 2000,
-        loop: true,
-    })
 
     return (
         <section id='contact' className='contact'>
@@ -21,36 +12,7 @@ export const Contact = () =>
                 <h2>Contact Us For A Free Consultation</h2>
             </div>
             <div className='contact-grid'>
-                <div className='contact-info'>
-                    <ul>
-                        <li>
-                            <span className="material-symbols-outlined">
-                                call
-                            </span>
-                            <a>+1 786 394 3353</a>
-                        </li>
-                        <li>
-                            <span className="material-symbols-outlined">
-                                alternate_email
-                            </span>
-                            <a>support@quicktechsolutions.com</a>
-                        </li>
-                        <li>
-                            <span className="material-symbols-outlined">
-                                map_pin_heart
-                            </span>
-                            <a>Based in Miami, Florida</a>
-                        </li>
-                    </ul>
-                    <div className='contact-disclaimer'>
-                        <span className="material-symbols-outlined">
-                            map
-                        </span>
-                        <p>
-                            <em>We proudly serve residential clients across</em> <em className='serving-areas'>{text}</em>
-                        </p>
-                    </div>
-                </div>
+                <ContactInfo />
                 <ContactForm />
             </div>
         </section>

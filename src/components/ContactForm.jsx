@@ -10,7 +10,7 @@ export const ContactForm = () =>
     return (
         <section className='contact-form-section'>
             <form id='contact-form' className='contact-form' onSubmit={handleSubmit(onSubmit)}>
-                <input placeholder='Name' {...register("firstName")} />
+                <input id='name' placeholder='Name' {...register("firstName")} />
                 <input placeholder='Last Name' {...register("lastName")} />
                 <input placeholder='Phone' {...register("phone")} />
                 <input placeholder='Email' {...register("email")} />
