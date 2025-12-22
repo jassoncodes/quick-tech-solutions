@@ -16,6 +16,7 @@
   /* Breakpoints */
   --breakpoint-desktop: 1080px;
   --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 375px;
 
   /* Fonts */
   --font-sora: "Sora", sans-serif;
@@ -248,15 +249,15 @@
   }
 
   .contact-grid {
-    @apply flex gap-8 flex-col-reverse tablet:grid px-4 tablet:px-4 desktop:px-12 tablet:grid-cols-2;
+    @apply flex gap-4 flex-col-reverse tablet:grid px-4 tablet:px-4 desktop:px-12 tablet:grid-cols-2;
   }
 
   .contact-info {
-    @apply flex flex-col min-h-44 p-2 w-75;
+    @apply flex flex-col min-h-44;
   }
 
   .contact-info ul {
-    @apply flex flex-col gap-1.5;
+    @apply flex flex-col gap-1.5 mobile:items-center tablet:items-start;
   }
 
   .contact-info ul li,
@@ -273,13 +274,17 @@
   }
 
   .contact-form {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 1rem;
-    justify-self: center;
+    @apply tablet:grid 
+    tablet:grid-cols-[repeat(2,auto)] 
+    tablet:gap-4
+    mobile:place-self-center
+    mobile:max-w-75
+    mobile:flex
+    mobile:flex-col-reverse
+    mobile:gap-4;
 
     & > :nth-child(n + 5) {
-      grid-column: 1/-1;
+      @apply col-span-full;
     }
 
     input,
@@ -299,14 +304,5 @@
     textarea {
       @apply resize-none h-32;
     }
-  }
-}
-
-@media (max-width: 767px) {
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 300px;
   }
 }
