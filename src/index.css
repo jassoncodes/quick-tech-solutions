@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,archive,book_ribbon,build,call,forum,handshake,map,map_pin_heart,menu,partner_exchange,payments,print,support_agent,verified_user,wifi");
-
 @import "tailwindcss";
 
 /* Uncoment to go content centered */
@@ -17,6 +16,7 @@
   --breakpoint-desktop: 1080px;
   --breakpoint-tablet: 768px;
   --breakpoint-mobile: 375px;
+  --breakpoint-big-desktop: 1152px;
 
   /* Fonts */
   --font-sora: "Sora", sans-serif;
@@ -71,6 +71,10 @@
 }
 
 @layer base {
+  /* body {
+    @apply w-full big-desktop:my-0 mx-auto max-w-7xl;
+  } */
+
   #root {
     @apply h-dvh grid grid-rows-[auto_1fr_auto] desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
   }
@@ -89,7 +93,6 @@
 
   header {
     @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center;
-    /* @apply flex desktop:px-14 desktop:grid desktop:grid-cols-12 items-center; */
   }
 
   .logo {
@@ -243,13 +246,13 @@
     @apply hidden tablet:block tablet:w-1/2 tablet:rounded-md tablet:shadow-md;
   }
 
-  /* TODO: Padding messing up with mobile design */
+  /* TODO: ContactForm Padding messing up with mobile design */
   .contact {
-    @apply flex flex-col bg-neutral py-20 tablet:p-(--section-padding);
+    @apply flex flex-col bg-neutral p-(--section-padding);
   }
 
   .contact-grid {
-    @apply flex gap-4 flex-col-reverse tablet:grid px-4 tablet:px-4 desktop:px-12 tablet:grid-cols-2;
+    @apply flex flex-col tablet:gap-8 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start;
   }
 
   .contact-info {
@@ -277,17 +280,15 @@
     @apply tablet:grid 
     tablet:grid-cols-[repeat(2,auto)] 
     tablet:gap-4
-    mobile:place-self-center
-    mobile:max-w-75
     mobile:flex
-    mobile:flex-col-reverse
+    mobile:flex-col
     mobile:gap-4;
 
     & > :nth-child(n + 5) {
       @apply col-span-full;
     }
 
-    input,
+    input:not([type="submit"]),
     select,
     textarea {
       @apply bg-white
@@ -304,5 +305,32 @@
     textarea {
       @apply resize-none h-32;
     }
+  }
+
+  .input-submit {
+    @apply relative overflow-hidden p-3 cursor-pointer rounded-4xl border-0 bg-(image:--gradient-header) text-white font-bold transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30 w-1/2 place-self-center;
+
+    &:hover {
+      @apply opacity-65;
+    }
+  }
+
+  footer {
+    .logo {
+      @apply h-12 block;
+    }
+    /* @apply grid; */
+    /* @apply grid p-(--section-padding) bg-(image:--gradient-hero-green-blue) text-white; */
+    /* & > :first-child {
+      @apply grid grid-cols-3 gap-4 justify-items-start;
+
+      .contact-info {
+        @apply w-120 px-8;
+      }
+
+      > :last-child ul {
+        @apply grid grid-cols-3 px-8;
+      }
+    } */
   }
 }
