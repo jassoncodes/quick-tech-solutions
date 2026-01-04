@@ -5,7 +5,7 @@ export const Hero = () =>
 {
     return (
         <section className='hero'>
-            <span className='hero-slogan'>Smart. Trusted. Support.</span>
+            <span>Smart. Trusted. Support.</span>
             <h1 className='hero-header'>
                 Technology Made Simple for Everyone in Miami.
             </h1>

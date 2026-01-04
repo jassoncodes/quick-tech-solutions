@@ -104,7 +104,7 @@
   }
 
   ul.menu-list {
-    @apply absolute top-[7.3%] left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
+    @apply absolute top-12.5 tablet:top-[5.5%] left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
     /* estado cerrado */
     opacity-0 scale-95 -translate-y-2 pointer-events-none
     /* animación */
@@ -112,7 +112,7 @@
   }
 
   ul.menu-list.open {
-    @apply opacity-100 scale-100 translate-y-0 pointer-events-auto font-semibold;
+    @apply opacity-100 h-2/6 tablet:h-2/8 scale-100 translate-y-2 tablet:translate-y-0 pointer-events-auto font-semibold;
   }
 
   ul.menu-list li a {
@@ -178,15 +178,14 @@
   }
 
   .hero {
-    @apply min-h-[70dvh] flex flex-col justify-center px-6 text-white desktop:px-16;
-  }
-
-  .hero-slogan {
-    @apply text-2xl font-extrabold;
+    @apply min-h-dvh flex flex-col justify-center px-6 text-white desktop:px-16;
+    & > :first-child {
+      @apply mb-6 text-2xl font-extrabold;
+    }
   }
 
   h1.hero-header {
-    @apply text-5xl font-sora;
+    @apply text-5xl font-sora font-black tracking-wide;
   }
 
   .hero p {
@@ -246,13 +245,12 @@
     @apply hidden tablet:block tablet:w-1/2 tablet:rounded-md tablet:shadow-md;
   }
 
-  /* TODO: ContactForm Padding messing up with mobile design */
   .contact {
     @apply flex flex-col bg-neutral p-(--section-padding);
   }
 
   .contact-grid {
-    @apply flex flex-col tablet:gap-8 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start;
+    @apply flex flex-col-reverse gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start;
   }
 
   .contact-info {
@@ -268,6 +266,10 @@
     @apply flex align-middle gap-1.5 text-lg justify-start;
   }
 
+  .contact-disclaimer {
+    @apply mobile:w-75 tablet:w-75 place-self-center tablet:place-self-start;
+  }
+
   .contact-info span {
     @apply text-secondary-dark text-wrap text-start;
   }
@@ -278,8 +280,8 @@
 
   .contact-form {
     @apply tablet:grid 
-    tablet:grid-cols-[repeat(2,auto)] 
-    tablet:gap-4
+    tablet:grid-cols-2 
+    tablet:gap-2
     mobile:flex
     mobile:flex-col
     mobile:gap-4;
