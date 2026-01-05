@@ -75,8 +75,11 @@
     @apply w-full big-desktop:my-0 mx-auto max-w-7xl;
   } */
 
+  html {
+    @apply scroll-smooth;
+  }
   #root {
-    @apply h-dvh grid grid-rows-[auto_1fr_auto] desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
+    @apply min-h-dvh grid grid-rows-[auto_1fr_auto] desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
   }
 
   h2 {
@@ -92,7 +95,7 @@
   }
 
   header {
-    @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center;
+    @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center sticky bg-white top-0 z-50;
   }
 
   .logo {
@@ -104,15 +107,19 @@
   }
 
   ul.menu-list {
-    @apply absolute top-12.5 tablet:top-[5.5%] left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
+    @apply absolute left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
     /* estado cerrado */
     opacity-0 scale-95 -translate-y-2 pointer-events-none
     /* animación */
-    transition-all duration-300 ease-out desktop:static desktop:opacity-100 desktop:scale-100 desktop:translate-y-0 desktop:pointer-events-auto desktop:flex-row desktop:justify-end desktop:gap-12 desktop:text-xl;
+    transition-all duration-350 ease-in-out desktop:static desktop:opacity-100 desktop:scale-100 desktop:translate-y-0 desktop:pointer-events-auto desktop:flex-row desktop:justify-end desktop:gap-12 desktop:text-xl;
   }
 
   ul.menu-list.open {
-    @apply opacity-100 h-2/6 tablet:h-2/8 scale-100 translate-y-2 tablet:translate-y-0 pointer-events-auto font-semibold;
+    @apply block z-40 py-2 opacity-100 top-full h-fit scale-100 translate-y-0 tablet:translate-y-0 pointer-events-auto font-semibold;
+
+    & > li {
+      @apply my-4;
+    }
   }
 
   ul.menu-list li a {
@@ -209,6 +216,10 @@
     @apply grid px-4 tablet:px-8 desktop:px-12 gap-6 mb-8 tablet:min-h-96 tablet:grid-cols-2 desktop:grid-cols-3;
   }
 
+  .services > .button-primary {
+    @apply desktop:mt-4 desktop:w-2/12 desktop:h-12;
+  }
+
   .service-card {
     @apply bg-white min-h-80 p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
   }
@@ -242,7 +253,7 @@
   }
 
   .why-card img {
-    @apply hidden tablet:block tablet:w-1/2 tablet:rounded-md tablet:shadow-md;
+    @apply hidden tablet:block tablet:max-w-2/5 tablet:rounded-md tablet:shadow-md;
   }
 
   .contact {
@@ -250,7 +261,10 @@
   }
 
   .contact-grid {
-    @apply flex flex-col-reverse gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start;
+    /* With contat form */
+    /* @apply flex flex-col-reverse gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start; */
+    /* without contact form */
+    @apply flex flex-col-reverse justify-center gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18;
   }
 
   .contact-info {
@@ -310,7 +324,7 @@
   }
 
   .input-submit {
-    @apply relative overflow-hidden p-3 cursor-pointer rounded-4xl border-0 bg-(image:--gradient-header) text-white font-bold transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30 w-1/2 place-self-center;
+    @apply relative overflow-hidden p-3 mt-4 cursor-pointer rounded-4xl border-0 bg-(image:--gradient-header) text-white font-bold transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30 w-1/2 place-self-center;
 
     &:hover {
       @apply opacity-65;
@@ -318,21 +332,37 @@
   }
 
   footer {
-    .logo {
-      @apply h-12 block;
+    @apply grid gap-8 p-(--section-padding) bg-(image:--gradient-header) text-white text-center text-nowrap text-sm;
+    .footer-info {
+      @apply flex flex-col gap-2 text-center items-center tablet:grid tablet:grid-cols-2 tablet:justify-between;
+      & section {
+        @apply p-6 tablet:text-start;
+      }
+      svg.footer-logo {
+        @apply w-28 h-28 mobile:place-self-center;
+      }
+      .footer-brand-name {
+        @apply w-auto h-20 tablet:w-50;
+      }
+
+      & > section:first-child > :nth-child(-n + 2) {
+        @apply tablet:inline-block;
+      }
+
+      & > section:first-child > :last-child {
+        @apply text-justify tracking-wide text-pretty mobile:text-center desktop:text-start desktop:w-3/4;
+      }
+
+      /* Service Areas */
+      & section:last-child {
+        @apply tablet:text-start tablet:justify-self-end desktop:w-4/6;
+        & > h3 {
+          @apply text-secondary;
+        }
+        & > ul {
+          @apply tablet:grid tablet:grid-cols-3 mobile:grid mobile:grid-cols-3 mobile:gap-2;
+        }
+      }
     }
-    /* @apply grid; */
-    /* @apply grid p-(--section-padding) bg-(image:--gradient-hero-green-blue) text-white; */
-    /* & > :first-child {
-      @apply grid grid-cols-3 gap-4 justify-items-start;
-
-      .contact-info {
-        @apply w-120 px-8;
-      }
-
-      > :last-child ul {
-        @apply grid grid-cols-3 px-8;
-      }
-    } */
   }
 }

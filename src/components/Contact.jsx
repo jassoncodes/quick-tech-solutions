@@ -13,7 +13,7 @@ export const Contact = () =>
             </div>
             <div className='contact-grid'>
                 <ContactInfo />
-                <ContactForm />
+                {/* <ContactForm /> */}
             </div>
         </section>
     )

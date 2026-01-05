@@ -7,7 +7,7 @@ import { WhyCard } from './WhyCard'
 export const WhyUs = () =>
 {
     return (
-        <section className='why-section'>
+        <section id="why-us" className='why-section'>
             <div className="section-header">
                 <h2>Why Choose Quick Tech Solutions</   h2>
             </div>

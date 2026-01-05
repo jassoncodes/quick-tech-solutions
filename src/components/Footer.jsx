@@ -1,7 +1,9 @@
 import React from 'react'
-import logo from '../assets/images/qts-logo.svg'
+// import logo from '../assets/images/qts-logo.svg'
 import { ContactInfo } from './ContactInfo'
 import { CITIES } from '../config'
+import { Logo } from './Logo'
+import { BrandName } from './BrandName'
 
 export const Footer = () =>
 {
@@ -9,12 +11,14 @@ export const Footer = () =>
         <footer>
             <section className='footer-info'>
                 <section>
-                    <img className='logo' src={logo} alt="quick-tech-solutions" />
-                    <p>We provide patient, professional, and jargon-free support right in your home. We make tech work for you.</p>
-                </section>
-                <section>
-                    <h3>Contact Info</h3>
-                    <ContactInfo />
+                    <Logo
+                        className="footer-logo"
+                        primary="#27445d"
+                        secondary="#27445d"
+                        tertiary="#fff"
+                    />
+                    <BrandName className='footer-brand-name' primary='#27445d' />
+                    <p>We provide patient, professional, and jargon-free support right in your home, making tech work for you.</p>
                 </section>
                 <section>
                     <h3>Services Areas</h3>
@@ -24,7 +28,7 @@ export const Footer = () =>
                 </section>
             </section>
             <section className='social-copy'>
-                <section className='social-media'>Social media</section>
+                {/* <section className='social-media'>Social media</section> */}
                 <span>Quick Tech Solutions &copy; 2026 &#183; developed by <a href='https://github.com/jassoncodes' target='blank'>@jassoncodes</a></span>
             </section>
         </footer>

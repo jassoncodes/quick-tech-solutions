@@ -3,6 +3,7 @@ import { Hero } from './Hero'
 import { Services } from './Services'
 import { WhyUs } from './WhyUs'
 import { Contact } from './Contact'
+import { Footer } from './Footer'
 
 export const Main = () =>
 {

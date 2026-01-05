@@ -12,6 +12,11 @@ export const Header = () =>
         setOpen((isOpen) => !isOpen);
     }
 
+    const closeMenu = () =>
+    {
+        setOpen(false);
+    };
+
     return (
         <header>
             <img className='logo' src={logo} alt="quick-tech-solutions" />
@@ -23,9 +28,10 @@ export const Header = () =>
             <nav className='menu' id='navBar'>
 
                 <ul className={`menu-list ${open ? "open" : ""}`}>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Why us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    {/* <ul className={`menu-list open`}> */}
+                    <li><a href="#services" onClick={closeMenu}>Services</a></li>
+                    <li><a href="#why-us" onClick={closeMenu}>Why us</a></li>
+                    <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
                     <li>
                         <Button text='Call now' className='button-primary in-menu' />
                     </li>
