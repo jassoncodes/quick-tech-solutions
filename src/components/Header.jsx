@@ -24,12 +24,13 @@ export const Header = () => {
                 </span>
             </button>
             <nav className='menu' id='navBar'>
-
+                // TODO: menu close animation weird
                 <ul className={`menu-list${open ? " open" : ""}`}>
                     <li><a href="#home" onClick={closeMenu}>Home</a></li>
                     <li><a href="#services" onClick={closeMenu}>Services</a></li>
                     <li><a href="#why-us" onClick={closeMenu}>Why us</a></li>
                     <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+                    // TODO: on mobile this button has to be centered
                     <li>
                         <ButtonLink text='Call now' className='button-primary in-menu' />
                     </li>
