@@ -12,7 +12,7 @@ export const Contact = () => {
             </div>
             <div className='contact-grid'>
                 <ContactInfo />
-                // TODO: on mobile this button has to be visible
+                {/* // TODO: on mobile this button has to be visible */}
                 <ButtonLink href="tel:17863943353" text='Call now for tech support' className='button-primary' />
                 {/* TODO: Implement contact form and integrate with mail api */}
                 {/* <ContactForm /> */}
