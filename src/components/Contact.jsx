@@ -1,9 +1,8 @@
-import React from 'react'
-import { ContactForm } from './ContactForm'
-import { ContactInfo } from './ContactInfo'
 
-export const Contact = () =>
-{
+import { ContactInfo } from './ContactInfo'
+import { ButtonLink } from './ButtonLink';
+
+export const Contact = () => {
 
     return (
         <section id='contact' className='contact'>
@@ -13,6 +12,8 @@ export const Contact = () =>
             </div>
             <div className='contact-grid'>
                 <ContactInfo />
+                <ButtonLink href="tel:17863943353" text='Call now for tech support' className='button-primary' />
+                {/* TODO: Implement contact form and integrate with mail api */}
                 {/* <ContactForm /> */}
             </div>
         </section>

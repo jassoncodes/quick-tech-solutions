@@ -3,8 +3,7 @@ import React from 'react'
 import { useTypewriter } from '../hooks/Typewriter'
 import { CITIES } from '../config'
 
-export const ContactInfo = () =>
-{
+export const ContactInfo = () => {
     const text = useTypewriter({
         texts: CITIES,
         typingDelay: 70,
@@ -19,13 +18,13 @@ export const ContactInfo = () =>
                     <span className="material-symbols-outlined">
                         call
                     </span>
-                    <a>+1 786 394 3353</a>
+                    <a href='tel:17863943353'>+1 786 394 3353</a>
                 </li>
                 <li>
                     <span className="material-symbols-outlined">
                         alternate_email
                     </span>
-                    <a>support@quicktechsolutions.com</a>
+                    <a href='mailto:support@quicktechsolutions.com'>support@quicktechsolutions.com</a>
                 </li>
                 <li>
                     <span className="material-symbols-outlined">

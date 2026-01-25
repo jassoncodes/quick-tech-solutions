@@ -67,19 +67,24 @@
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 @layer base {
-  /* body {
-    @apply w-full big-desktop:my-0 mx-auto max-w-7xl;
-  } */
-
   html {
     @apply scroll-smooth;
   }
+
   #root {
-    @apply min-h-dvh grid grid-rows-[auto_1fr_auto] desktop:px-0 text-primary bg-white shadow-xl/30 rounded-lg;
+    @apply min-h-dvh grid grid-rows-[auto_1fr_auto];
+  }
+
+  main {
+    @apply min-h-0;
   }
 
   h2 {
@@ -98,8 +103,12 @@
     @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center sticky bg-white top-0 z-50;
   }
 
+  .logo-link {
+    @apply col-span-6 p-0;
+  }
+
   .logo {
-    @apply col-span-6 h-[3.75em] desktop:h-[5.75em] p-0 tablet:ml-auto desktop:ml-0;
+    @apply h-[3.75em] desktop:h-[5.75em] p-0 tablet:ml-auto desktop:ml-0;
   }
 
   nav.menu {
@@ -107,11 +116,12 @@
   }
 
   ul.menu-list {
-    @apply absolute left-0 w-full bg-white text-primary text-body-lg flex flex-col gap-4 text-center justify-center h-2/8
+    @apply text-base text-nowrap absolute left-0 w-full bg-white text-primary flex flex-col text-center justify-center h-2/8
+    desktop:pointer-events-auto desktop:flex-row desktop:justify-end desktop:gap-6
     /* estado cerrado */
     opacity-0 scale-95 -translate-y-2 pointer-events-none
     /* animación */
-    transition-all duration-350 ease-in-out desktop:static desktop:opacity-100 desktop:scale-100 desktop:translate-y-0 desktop:pointer-events-auto desktop:flex-row desktop:justify-end desktop:gap-12 desktop:text-xl;
+    transition-opacity duration-150 ease-in desktop:static desktop:opacity-100 desktop:scale-100 desktop:translate-y-0;
   }
 
   ul.menu-list.open {
@@ -131,7 +141,8 @@
   }
 
   .button-primary {
-    @apply relative overflow-hidden cursor-pointer col-span-2 hidden px-10 py-2 rounded-4xl text-white font-bold w-fit desktop:block transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
+    @apply relative overflow-hidden cursor-pointer col-span-2 hidden px-10 py-2 rounded-4xl text-white font-bold w-fit 
+    desktop:flex text-center items-center transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
   }
 
   .button-primary::before {
@@ -157,7 +168,8 @@
   }
 
   .button-secondary {
-    @apply relative overflow-hidden cursor-pointer col-span-2 px-10 py-2 rounded-4xl text-white font-semibold w-fit desktop:block transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
+    @apply relative overflow-hidden cursor-pointer col-span-2 px-10 py-2 rounded-4xl text-white font-semibold w-fit 
+    desktop:flex text-center items-center transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
   }
 
   .button-secondary::before {
@@ -178,6 +190,7 @@
     @apply relative z-10;
   }
 
+  /* Hero */
   .hero {
     background-image: var(--gradient-hero-blue-green-75-oppacy), url("./assets/images/tech-support-pc.png");
     background-size: cover;
@@ -185,7 +198,7 @@
   }
 
   .hero {
-    @apply min-h-dvh flex flex-col justify-center px-6 text-white desktop:px-16;
+    @apply min-h-dvh tablet:min-h-[45vh] desktop:min-h-[50vh] big-desktop:min-h-[65vh] flex flex-col justify-center px-6 text-white tablet:px-16;
     & > :first-child {
       @apply mb-6 text-2xl font-extrabold;
     }
@@ -199,13 +212,16 @@
     @apply mb-4;
   }
 
-  /* --- SERVICES SECTION --- */
-  .services {
-    @apply flex flex-col items-center bg-light p-(--section-padding);
-
-    .button-primary {
-      @apply block;
+  .hero .button-secondary {
+    @apply desktop:mt-4 h-14;
+    & > span {
+      @apply text-xl font-medium;
     }
+  }
+
+  /* Services section */
+  .services {
+    @apply flex flex-col items-center bg-light p-(--section-padding) scroll-mt-20;
   }
 
   .section-header {
@@ -216,12 +232,15 @@
     @apply grid px-4 tablet:px-8 desktop:px-12 gap-6 mb-8 tablet:min-h-96 tablet:grid-cols-2 desktop:grid-cols-3;
   }
 
-  .services > .button-primary {
-    @apply desktop:mt-4 desktop:w-2/12 desktop:h-12;
+  .services .button-primary {
+    @apply desktop:mt-4 h-14;
+    & > span {
+      @apply text-xl font-medium;
+    }
   }
 
   .service-card {
-    @apply bg-white min-h-80 p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary;
+    @apply bg-white min-h-80 p-8 rounded-md shadow-xl transition-transform duration-300 ease-linear border border-light text-primary max-w-100;
   }
 
   .service-card:hover {
@@ -229,11 +248,12 @@
   }
 
   .service-icon {
-    @apply w-[50px] h-[50px] rounded-full bg-light flex items-center justify-center mb-8 text-secondary;
+    @apply w-12.5 h-12.5 rounded-full bg-light flex items-center justify-center mb-8 text-secondary;
   }
 
+  /* Why us section */
   .why-section {
-    @apply p-(--section-padding) flex flex-col text-primary;
+    @apply p-(--section-padding) scroll-mt-20 flex flex-col text-primary;
   }
 
   .why-grid {
@@ -256,15 +276,20 @@
     @apply hidden tablet:block tablet:max-w-2/5 tablet:rounded-md tablet:shadow-md;
   }
 
+  /* Contact section */
   .contact {
-    @apply flex flex-col bg-neutral p-(--section-padding);
+    @apply flex flex-col bg-neutral p-(--section-padding) scroll-mt-20;
   }
 
   .contact-grid {
-    /* With contat form */
+    /* With contact form */
     /* @apply flex flex-col-reverse gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start; */
+
     /* without contact form */
     @apply flex flex-col-reverse justify-center gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18;
+    & > .button-secondary {
+      @apply justify-self-center;
+    }
   }
 
   .contact-info {
@@ -286,6 +311,13 @@
 
   .contact-info span {
     @apply text-secondary-dark text-wrap text-start;
+  }
+
+  .contact .button-primary {
+    @apply desktop:mt-4 h-14;
+    & > span {
+      @apply text-xl font-medium;
+    }
   }
 
   em.serving-areas {
@@ -333,8 +365,10 @@
 
   footer {
     @apply grid gap-8 p-(--section-padding) bg-(image:--gradient-header) text-white text-center text-nowrap text-sm;
+
     .footer-info {
       @apply flex flex-col gap-2 text-center items-center tablet:grid tablet:grid-cols-2 tablet:justify-between;
+
       & section {
         @apply p-6 tablet:text-start;
       }

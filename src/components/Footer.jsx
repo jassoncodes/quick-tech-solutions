@@ -1,12 +1,8 @@
-import React from 'react'
-// import logo from '../assets/images/qts-logo.svg'
-import { ContactInfo } from './ContactInfo'
 import { CITIES } from '../config'
 import { Logo } from './Logo'
 import { BrandName } from './BrandName'
 
-export const Footer = () =>
-{
+export const Footer = () => {
     return (
         <footer>
             <section className='footer-info'>
@@ -29,7 +25,7 @@ export const Footer = () =>
             </section>
             <section className='social-copy'>
                 {/* <section className='social-media'>Social media</section> */}
-                <span>Quick Tech Solutions &copy; 2026 &#183; developed by <a href='https://github.com/jassoncodes' target='blank'>@jassoncodes</a></span>
+                <span>Quick Tech Solutions &copy; 2026 &#183; developed by <a href='https://github.com/jassoncodes' target='_blank'>@jassoncodes</a></span>
             </section>
         </footer>
     )

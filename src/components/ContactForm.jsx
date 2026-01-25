@@ -1,8 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-export const ContactForm = () =>
-{
+// TODO: optimize select dropdown a
+// TODO: connect with mail gun
+export const ContactForm = () => {
 
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => console.log(data)
@@ -13,8 +14,8 @@ export const ContactForm = () =>
             <input placeholder='Last Name' {...register("lastName")} />
             <input placeholder='Phone' {...register("phone")} />
             <input placeholder='Email' {...register("email")} />
-            <select {...register("service")}>
-                <option defaultChecked value="">Please select the service your interested in...</option>
+            <select {...register("service")} defaultValue="">
+                <option value="">Please select the service your interested in...</option>
                 <option value="computer-diagnostic">Computer Check-Up & Diagnostics</option>
                 <option value="network-setup">Wi-Fi Setup & Coverage Optimization</option>
                 <option value="printer-setup">Printer Installation</option>
