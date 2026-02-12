@@ -103,86 +103,33 @@
     @apply col-span-6 p-0;
   }
 
-  .logo {
+  /* .logo {
     @apply h-[3.75em] desktop:h-[5.75em] p-0 tablet:ml-auto desktop:ml-0;
-  }
-  /* 
-  header {
-    @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center sticky bg-white top-0 z-50;
-  }
-
-
-  nav.menu {
-    @apply col-span-6 desktop:font-medium desktop:col-span-4 desktop:justify-items-end;
-  }
-
-  ul.menu-list {
-    @apply absolute
-    top-full 
-    left-0 
-    w-full 
-    bg-white 
-    text-primary 
-    text-base 
-    flex 
-    flex-col 
-    items-center 
-      text-nowrap 
-      desktop:items-stretch 
-      h-2/8
-      overflow-hidden
-      pointer-events-none
-      opacity-0 
-      -translate-y-2 
-      transition-[opacity,transfor,max-height] 
-      duration-150 
-      ease-in 
-      max-h-0
-      
-      
-      
-      desktop:static 
-      desktop:flex-row 
-      desktop:justify-end 
-      desktop:gap-6
-      desktop:opacity-100 
-      desktop:translate-y-0
-      desktop:pointer-events-auto 
-      desktop:max-h-none
-      desktop:overflow-visible;
-  }
-
-  ul.menu-list.open {
-    @apply pointer-events-auto 
-    opacity-100 
-    translate-y-0 
-    py-2 
-    z-40 
-    max-h-96
-      items-center 
-      font-semibold;
-
-    & > li {
-      @apply my-3;
-    }
-  }
-
-  ul.menu-list.open li.menu-cta {
-    @apply w-full justify-center;
-  }
-
-  ul.menu-list li a {
-    @apply cursor-pointer transition-colors duration-200 hover:text-secondary active:text-secondary focus-visible:text-secondary;
-  }
-
-  .toggle-menu {
-    @apply block ml-auto leading-0 text-primary desktop:hidden;
   } */
 
-  /* chatgpt */
+  .brand {
+    @apply inline-flex items-center gap-0;
+  }
+
+  .brand__mark {
+    @apply w-10 h-10;
+  }
+
+  .brand__name {
+    @apply h-8 w-auto;
+  }
+
+  .brand.header .brand__mark {
+    @apply w-12 h-12 desktop:w-14 desktop:h-14;
+  }
+
+  .brand.header .brand__name {
+    @apply h-8 desktop:h-10;
+  }
+
   header {
     @apply flex px-4 desktop:px-14 desktop:grid desktop:grid-cols-12 items-center
-    sticky top-0 z-50 bg-white relative;
+    sticky top-0 z-50 bg-white;
   }
 
   nav.menu {
@@ -316,7 +263,7 @@
 
   /* Services section */
   .services {
-    @apply flex flex-col items-center bg-light p-(--section-padding) scroll-mt-20;
+    @apply flex flex-col items-center bg-light p-(--section-padding) scroll-mt-15;
   }
 
   .section-header {
@@ -348,7 +295,7 @@
 
   /* Why us section */
   .why-section {
-    @apply p-(--section-padding) scroll-mt-20 flex flex-col text-primary;
+    @apply p-(--section-padding) scroll-mt-15 flex flex-col text-primary;
   }
 
   .why-grid {
@@ -373,7 +320,7 @@
 
   /* Contact section */
   .contact {
-    @apply flex flex-col bg-neutral p-(--section-padding) scroll-mt-20;
+    @apply flex flex-col bg-neutral p-(--section-padding) scroll-mt-15;
   }
 
   .contact-grid {
@@ -462,35 +409,38 @@
     @apply grid gap-8 p-(--section-padding) bg-(image:--gradient-header) text-white text-center text-nowrap text-sm;
 
     .footer-info {
-      @apply flex flex-col gap-2 text-center items-center tablet:grid tablet:grid-cols-2 tablet:justify-between;
+      @apply flex flex-col items-center gap-2 tablet:grid tablet:grid-cols-2 tablet:justify-between;
 
-      & section {
-        @apply p-6 tablet:text-start;
-      }
-      svg.footer-logo {
-        @apply w-28 h-28 mobile:place-self-center;
-      }
-      .footer-brand-name {
-        @apply w-auto h-20 tablet:w-50;
+      .footer-disclaimer {
+        @apply flex flex-col mobile:items-center tablet:items-start;
       }
 
-      & > section:first-child > :nth-child(-n + 2) {
-        @apply tablet:inline-block;
+      .brand.footer {
+        @apply mobile:flex mobile:flex-col mobile:items-center tablet:flex-row gap-0;
       }
 
-      & > section:first-child > :last-child {
-        @apply text-justify tracking-wide text-pretty mobile:text-center desktop:text-start desktop:w-3/4;
+      .brand.footer .brand__mark {
+        @apply w-24 h-24;
       }
 
-      /* Service Areas */
-      & section:last-child {
-        @apply tablet:text-start tablet:justify-self-end desktop:w-4/6;
-        & > h3 {
-          @apply text-secondary;
-        }
-        & > ul {
-          @apply tablet:grid tablet:grid-cols-3 mobile:grid mobile:grid-cols-3 mobile:gap-2;
-        }
+      .brand.footer .brand__name {
+        @apply h-16 w-auto;
+      }
+
+      .footer-disclaimer p {
+        @apply text-justify tracking-wide text-pretty mobile:text-center tablet:text-start desktop:w-3/5;
+      }
+    }
+
+    /* Service Areas */
+    .footer-service-areas {
+      /* @apply tablet:flex flex-col gap-2; */
+      @apply tablet:flex tablet:flex-col gap-2 tablet:text-start tablet:justify-self-end;
+      & > h3 {
+        @apply text-secondary;
+      }
+      .service-area-list {
+        @apply tablet:grid tablet:grid-cols-3 mobile:grid mobile:grid-cols-3 mobile:gap-4;
       }
     }
   }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ButtonLink } from './ButtonLink';
-import logo from '../assets/images/qts-logo.svg'
+// import logo from '../assets/images/qts-logo.svg'
+import { Logo } from './Logo';
 
 export const Header = () => {
     const [open, setOpen] = useState(false);
@@ -16,7 +17,13 @@ export const Header = () => {
     return (
         <header>
             <a className='logo-link' href='/'>
-                <img className='logo' src={logo} alt="quick-tech-solutions" />
+                {/* <img className='logo' src={logo} alt="quick-tech-solutions" /> */}
+                <Logo
+                    className="brand header"
+                    primary="#27445d"
+                    secondary="#27445d"
+                    tertiary="#fff"
+                />
             </a>
             <button onClick={handleOpenMenu} aria-controls='navBar' className='toggle-menu'>
                 <span className="material-symbols-outlined">
@@ -32,7 +39,7 @@ export const Header = () => {
                     <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
                     {/* // TODO: on mobile this button has to be centered */}
                     <li className='menu-cta'>
-                        <ButtonLink text='Call now' className='button-primary in-menu' />
+                        <ButtonLink href="tel:17863943353" text='Call now' className='button-primary in-menu' />
                     </li>
                 </ul>
             </nav>

@@ -1,24 +1,24 @@
 import { CITIES } from '../config'
-import { Logo } from './Logo'
+import { BrandLogo } from './BrandLogo'
 import { BrandName } from './BrandName'
+import { Logo } from './Logo'
 
 export const Footer = () => {
     return (
         <footer>
             <section className='footer-info'>
-                <section>
+                <section className='footer-disclaimer'>
                     <Logo
-                        className="footer-logo"
+                        className="brand footer"
                         primary="#27445d"
                         secondary="#27445d"
                         tertiary="#fff"
                     />
-                    <BrandName className='footer-brand-name' primary='#27445d' />
                     <p>We provide patient, professional, and jargon-free support right in your home, making tech work for you.</p>
                 </section>
-                <section>
+                <section className='footer-service-areas'>
                     <h3>Services Areas</h3>
-                    <ul>
+                    <ul className='service-area-list'>
                         {CITIES.map((city) => { return <li key={city.toLowerCase()}>{city}</li> })}
                     </ul>
                 </section>
