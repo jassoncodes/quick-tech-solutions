@@ -18,7 +18,7 @@ export const Services = () =>
                     return <ServiceCard key={service.id} service={service} />
                 })}
             </div>
-            <ButtonLink className='button-primary' text='Schedule a Visit' />
+            <ButtonLink href="tel:17863943353" className='button-primary' text='Schedule a Visit' />
         </section>
     )
 }

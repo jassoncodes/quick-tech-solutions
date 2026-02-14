@@ -2,7 +2,8 @@
 import { ContactInfo } from './ContactInfo'
 import { ButtonLink } from './ButtonLink';
 
-export const Contact = () => {
+export const Contact = () =>
+{
 
     return (
         <section id='contact' className='contact'>
