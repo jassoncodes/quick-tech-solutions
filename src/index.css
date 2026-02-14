@@ -338,7 +338,7 @@
     /* @apply flex flex-col-reverse gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 tablet:grid-cols-2 tablet:justify-start; */
 
     /* without contact form */
-    @apply flex flex-col-reverse justify-center gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18;
+    @apply flex flex-col-reverse justify-center gap-10 tablet:gap-2 tablet:grid tablet:px-4 desktop:px-18 mobile:items-center;
     & > .button-secondary {
       @apply justify-self-center;
     }
@@ -366,7 +366,7 @@
   }
 
   .contact .button-primary {
-    @apply desktop:mt-4 h-14;
+    @apply desktop:mt-4 h-14 flex;
     & > span {
       @apply text-xl font-medium;
     }
