@@ -67,11 +67,7 @@
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 1,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 24;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 @layer base {
@@ -132,6 +128,10 @@
     sticky top-0 z-50 bg-white;
   }
 
+  header .button-primary {
+    @apply w-36;
+  }
+
   nav.menu {
     @apply col-span-6 desktop:font-medium desktop:col-span-4 desktop:justify-items-end;
   }
@@ -178,58 +178,68 @@
   }
 
   /* CTA button dentro del menú (extra seguro) */
-  .button-primary.in-menu {
-    @apply block mx-auto desktop:hidden px-6 py-2;
-  }
-
   .button-primary {
-    @apply relative overflow-hidden cursor-pointer col-span-2 hidden px-10 py-2 rounded-4xl text-white font-bold w-fit 
-    desktop:flex text-center items-center transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
+    @apply flex
+    items-center
+    justify-center
+    px-10
+    py-2
+    rounded-4xl
+    font-bold
+    text-white
+    w-fit
+    cursor-pointer
+    transition-all
+    duration-300
+    ease-in-out
+    hover:scale-110
+    shadow-md/30
+    hidden
+    desktop:flex;
+
+    background-image: var(--gradient-hero-green-blue);
+    background-size: 200% 100%;
+    background-position: left;
   }
 
-  .button-primary::before {
-    content: "";
-    @apply absolute inset-0 bg-(image:--gradient-header) transition-all duration-300 ease-in z-0;
-  }
-
-  .button-primary::after {
-    content: "";
-    @apply absolute inset-0 bg-(image:--gradient-hero-green-blue) opacity-0 transition-all duration-300 ease-in z-0;
-  }
-
-  .button-primary:hover::after {
-    @apply opacity-65;
-  }
-
-  .button-primary > * {
-    @apply relative z-10;
+  .button-primary:hover {
+    background-position: right;
   }
 
   .button-primary.in-menu {
-    @apply block mx-auto desktop:hidden px-6 py-2;
+    @apply flex
+    items-center
+    justify-center
+    mx-auto
+    px-6
+    py-2
+    desktop:hidden;
   }
 
   .button-secondary {
-    @apply relative overflow-hidden cursor-pointer col-span-2 px-10 py-2 rounded-4xl text-white font-semibold w-fit 
-    desktop:flex text-center items-center transition-all duration-300 ease-in-out hover:scale-110 shadow-md/30;
+    @apply flex
+    items-center
+    justify-center
+    px-10
+    py-2
+    rounded-4xl
+    font-semibold
+    text-white
+    w-fit
+    cursor-pointer
+    transition-all
+    duration-300
+    ease-in-out
+    hover:scale-110
+    shadow-md/30;
+
+    background-image: var(--gradient-cta);
+    background-size: 200% 100%;
+    background-position: left;
   }
 
-  .button-secondary::before {
-    content: "";
-    @apply absolute inset-0 bg-(image:--gradient-cta) transition-all duration-300 ease-in z-0;
-  }
-
-  .button-secondary::after {
-    content: "";
-    @apply absolute inset-0 bg-(image:--gradient-cta) opacity-0 transition-all duration-300 ease-in z-0;
-  }
-
-  .button-secondary:hover::after {
-    @apply opacity-65;
-  }
-
-  .button-secondary > * {
-    @apply relative z-10;
+  .button-secondary:hover {
+    background-position: right;
   }
 
   /* Hero */
@@ -275,7 +285,7 @@
   }
 
   .services .button-primary {
-    @apply desktop:mt-4 h-14;
+    @apply desktop:mt-4 h-14 mobile:flex;
     & > span {
       @apply text-xl font-medium;
     }

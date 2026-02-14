@@ -1,10 +1,11 @@
 import React from 'react'
 import { ButtonLink } from './ButtonLink'
 
-export const Hero = () => {
+export const Hero = () =>
+{
     return (
         <section id='home' className='hero'>
-            <span>Smart. Trusted. Support.</span>
+            <span>Smart Trusted Support</span>
             <h1 className='hero-header'>
                 Technology Made Simple for Everyone in Miami.
             </h1>

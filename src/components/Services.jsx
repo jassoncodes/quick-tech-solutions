@@ -3,7 +3,8 @@ import { ServiceCard } from './ServiceCard'
 import { SERVICES } from '../config'
 import { ButtonLink } from './ButtonLink'
 
-export const Services = () => {
+export const Services = () =>
+{
     return (
         <section id="services" className="services">
             <div className="section-header">
@@ -12,11 +13,12 @@ export const Services = () => {
                     patience and clarity.</p>
             </div>
             <div className="services-grid">
-                {SERVICES.map((service) => {
+                {SERVICES.map((service) =>
+                {
                     return <ServiceCard key={service.id} service={service} />
                 })}
             </div>
-            <ButtonLink className='button-primary' text='Request a Quote' />
+            <ButtonLink className='button-primary' text='Schedule a Visit' />
         </section>
     )
 }
